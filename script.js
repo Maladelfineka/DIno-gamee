@@ -1,3 +1,9 @@
+let time = 0;
+setInterval(() => {
+    time++;
+    document.querySelector("scoreSpan").innerHTML = time;
+}, 1000);
+
 document.addEventListener("keydown", function(event) {
     if (event.code === "Space") {
         let dino = document.getElementById("dino");
@@ -5,7 +11,7 @@ document.addEventListener("keydown", function(event) {
             dino.classList.add("jump");
             setTimeout(function() {
                 dino.classList.remove("jump");
-            }, 500);
+            }, 750);
         }
     }
 });
@@ -21,12 +27,12 @@ function moveObstacle() {
         if (pos < -30) {
             pos = 600;
         }
-
+        
         let dinoBottom = parseInt(window.getComputedStyle(dino).getPropertyValue("bottom"));
         let obstacleLeft = parseInt(window.getComputedStyle(obstacle).getPropertyValue("left"));
-
+        
         if (obstacleLeft < 50 && obstacleLeft > 0 && dinoBottom <= 30) {
-            alert("game over!");
+            alert(`Game Over! ~ Your score is ${time}!`);
             clearInterval(interval);
             location.reload();
         }
@@ -34,3 +40,4 @@ function moveObstacle() {
 }
 
 moveObstacle();
+// setInterval -> 18
