@@ -1,7 +1,7 @@
 let time = 0;
 setInterval(() => {
     time++;
-    document.querySelector("scoreSpan").innerHTML = time;
+    document.querySelector("#scoreSpan").innerHTML = time;
 }, 1000);
 
 document.addEventListener("keydown", function(event) {
