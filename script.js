@@ -1,5 +1,5 @@
 let time = 0;
-setInterval(() => {
+let punky = setInterval(() => {
     time++;
     document.querySelector("#scoreSpan").innerHTML = time;
 }, 1000);
@@ -34,6 +34,7 @@ function moveObstacle() {
         if (obstacleLeft < 50 && obstacleLeft > 0 && dinoBottom <= 30) {
             alert(`Game Over! ~ Your score is ${time}!`);
             clearInterval(interval);
+            clearInterval(punky);
             location.reload();
         }
     }, 20);
